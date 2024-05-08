@@ -34,8 +34,11 @@ sh -c "git config --global author.name $GIT_AUTHOR_NAME"
 sh -c "git config --global author.email $GIT_AUTHOR_EMAIL"
 sh -c "git config --global committer.name $GIT_COMMITTER_NAME"
 sh -c "git config --global committer.email $GIT_COMMITTER_EMAIL"
+sh -c "git log -2"
+sh -c "git config --get-regexp email"
 sh -c "git remote add mirror $*"
 sh -c "echo pushing to $branch branch at $(git remote get-url --push mirror)"
+sh -c "git config --get-regexp email"
 if [ "${FORCE_PUSH:-}" = "true" ]
 then
   sh -c "git push --force mirror $branch"
